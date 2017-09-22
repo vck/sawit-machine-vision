@@ -37,7 +37,7 @@ def capture_image():
             rgb_im = im.convert('RGB')
             R,G,B = rgb_im.getpixel((1, 1))
             grey_value = (0.3 * R, 0.59 * G, 0.11 * B)
-            return render_template("prod.html", data=(R, G, B, "test.jpg"), grey_value=grey_value)
+            return render_template('dev.html', rgb=(R,G,B), grey_value=grey_value)
         else:
             return render_template("prod.html")
 
@@ -59,7 +59,7 @@ def capture_image():
         rgb_im = im.convert('RGB')
         R,G,B = rgb_im.getpixel((1, 1))
         grey_value = (0.3 * R, 0.59 * G, 0.11 * B)
-        return render_template('dev.html', rgb=rgb_im, grey_value=grey_value)
+        return render_template('dev.html', rgb=(R,G,B), grey_value=grey_value)
 
     else:
         return render_template("dev.html")
