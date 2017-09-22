@@ -38,8 +38,8 @@ def capture_image():
             R,G,B = rgb_im.getpixel((1, 1))
             grey_value = (0.3 * R, 0.59 * G, 0.11 * B)
             return render_template('prod.html', rgb=(R,G,B), grey_value=grey_value)
-        else:
-            return render_template("prod.html")
+
+        return render_template("prod.html")
 
 
     # DEVELOPMENT ENVIRONMENT
@@ -48,8 +48,8 @@ def capture_image():
         grey_value = (0.3 * R, 0.59 * G, 0.11 * B)
         return render_template('dev.html', rgb=(R,G,B), grey_value=grey_value)
 
-    else:
-        return render_template("dev.html")
+    return render_template("dev.html")
+
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=8000, debug=DEBUG)
