@@ -1,0 +1,15 @@
+{% extends "base.html"%}
+{%block container%}
+  {{if data}}
+    <img src="{{url_for('static', filename='test.jpg')}}">
+    <p>
+      rgb values: {{data[0], data[1], data[2]}}
+    </p>
+
+  {{else}}
+
+  <form action="/capture" method="post">
+     <input type="submit" name="submit" placeholder="submit">
+  </form>
+
+{%endblock%}
