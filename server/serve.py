@@ -72,13 +72,12 @@ def capture_image():
       """
    
    camera.capture("static/test.jpg")
+   
    im = Image.open("static/test.jpg")
    rgb_im = im.convert('RGB')
    r,g,b = rgb_im.getpixel((1, 1))
    return render_template("index.html", data=(r, g, b, "test.jpg"))
 
    
-
-
 app.run('0.0.0.0', port=8000)
 
