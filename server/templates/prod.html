@@ -27,12 +27,12 @@
         <h2 class="card-header">image data</h2>
       </div>
 
-      {%if rgb and grey_value%}
+      {%if rgb%}
       <div class="card-body">
         <h5>filename: 20170504143009.jpg</h5>
         <h5>file size: 20 Kb</h5>
-        <h5>gray value: {{grey_value[0]}} {{grey_value[1]}} {{grey_value[2]}}</h5>
-        <h5>rgb value {{rgb[0]}} {{rgb[1]}} {{rgb[2}}</h5>
+        <h5>gray value: {{grey_value[0], grey_value[1], grey_value[2]}}</h5>
+        <h5>rgb value {{rgb[0], rgb[1], rgb[2}}</h5>
       {%else%}
         <h5>no data avaliable</h5>
       {%endif%}
