@@ -44,20 +44,7 @@ def capture_image():
 
     # DEVELOPMENT ENVIRONMENT
     if request.method == "POST":
-        # upload file
-        # process uploaded file with PIL
-        # return rgb and gray value (W, D, )
-
-        if 'file' not in request.files:
-            flash("no file found")
-            return redirect(url_for('capture_image'))
-
-        files = request.files['file']
-        files.save(os.path.join(app.config['UPLOAD_FOLDER'], files.filename))
-
-        im = Image.open('/home/vickydasta/Pictures/'+files.filename)
-        rgb_im = im.convert('RGB')
-        R,G,B = rgb_im.getpixel((1, 1))
+        R, G, B = 12, 34, 56
         grey_value = (0.3 * R, 0.59 * G, 0.11 * B)
         return render_template('dev.html', rgb=(R,G,B), grey_value=grey_value)
 
