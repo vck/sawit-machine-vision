@@ -17,6 +17,7 @@ DEBUG = True
 if os.uname()[-1] == PROD_MACHINE:
     from PIL import Image
     from picamera import PiCamera
+    camera = PiCamera()
     PROD_MODE = True
     DEBUG=False
 
