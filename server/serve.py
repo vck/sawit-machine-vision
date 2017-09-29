@@ -1,4 +1,7 @@
 import os
+
+from datetime import strftime
+
 from flask import (
     Flask,
     render_template,
@@ -8,6 +11,7 @@ from flask import (
     flash)
 
 from PIL import Image
+from time import strftime
 
 DEV_MACHINE = 'X86_64'
 PROD_MACHINE = 'armv7l'
@@ -25,7 +29,9 @@ if os.uname()[-1] == PROD_MACHINE:
 app = Flask(__name__)
 
 
-app.config["UPLOAD_FOLDER"] = '/home/vickydasta/Pictures'
+def generate_filename():
+    timestamps = strftime("%m%d%Y-%H%M%S")
+    return timestamps+'.jpg'
 
 @app.route("/", methods=["GET", "POST"])
 def capture_image():
@@ -33,12 +39,13 @@ def capture_image():
     # PRODUCTION ENVIRONMENT
     if PROD_MODE == True:
         if request.method == "POST":
-            camera.capture("static/test.jpg")
-            im = Image.open("static/test.jpg")
+            filename = generate_filename()
+            camera.capture("static/"+filename))
+            im = Image.open("static/"+filename)
             rgb_im = im.convert('RGB')
             R,G,B = rgb_im.getpixel((1, 1))
             grey_value = (0.3 * R, 0.59 * G, 0.11 * B)
-            return render_template('prod.html', rgb=(R,G,B), grey_value=grey_value)
+            return render_template('prod.html', rgb=(R,G,B), grey_value=grey_value, filename=filename)
 
         return render_template("prod.html")
 
