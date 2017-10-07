@@ -1,6 +1,6 @@
 import os
 
-from datetime import strftime
+from time import strftime
 
 from flask import (
     Flask,
