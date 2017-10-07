@@ -1,2 +1,7 @@
 uploads/*.png
 sawit/*
+sawitenv/*
+scripts/*.swp
+server/*.swp
+model/*.swp
+docs/*.swp

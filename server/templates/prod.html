@@ -22,7 +22,9 @@
 
       <div class="card-header">
         <h2 class="card-header">image data</h2>
-        <img src="{{url_for('static', filename='test.jpg')}}" alt="">
+        {% if filename%}
+        <img src={{"static/"+filename}} alt="">
+        {% endif %}
       </div>
 
       {% if rgb %}
