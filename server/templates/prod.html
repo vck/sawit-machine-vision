@@ -9,7 +9,6 @@
 
         <form class="" action="/" method="post">
           <input class="btn btn-lg" type="submit" name="capture" value="capture">
-          <p class="card-text">press capture to get image from camera</p>
         </form>
       </div>
     </div>
@@ -17,9 +16,9 @@
     <div class="card">
 
       <div class="card-header">
-        <h2 class="card-header">captured image</h2>
+
         {% if filename%}
-        <img style="height: auto; width: auto;" src={{"static/"+filename}} alt="">
+        <img style="height: 100; width: 100;" src={{"static/"+filename}} alt="">
 
         {% endif %}
       </div>
