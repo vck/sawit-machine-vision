@@ -37,8 +37,8 @@ def capture_image():
     if PROD_MODE == True:
         if request.method == "POST":
             filename = generate_filename()
-            camera.resolution = (1280, 720)
-            camera.crop =  (0.25, 0.4, 1, 2)
+            #camera.resolution = (1280, 720)
+            #camera.crop =  (0.25, 0.4, 1, 2)
             camera.capture("static/"+filename)
             im = Image.open("static/"+filename)
             rgb_im = im.convert('RGB')
