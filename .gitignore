@@ -1,4 +1,5 @@
 uploads/*.png
+model/data/*
 sawit/*
 sawitenv/*
 scripts/*.swp
